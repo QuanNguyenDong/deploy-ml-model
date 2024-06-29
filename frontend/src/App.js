@@ -7,7 +7,7 @@ import { predict } from "./services/searchService";
 import Card from "./components/Card/Card";
 
 function App() {
-    const models = ["simple_nn", "cnn"];
+    const models = ["simple_nn", "cnn", "bert"];
     const [predict1, setPredict1] = useState([0, 0]);
     const [predict2, setPredict2] = useState([0, 0, 0, 0, 0, 0, 0]);
     const [predict3, setPredict3] = useState([0, 0, 0, 0, 0, 0, 0]);
@@ -25,6 +25,9 @@ function App() {
 
                         const p2 = await predict(models[1], input);
                         if (p2) setPredict2(p2);
+
+                        const p3 = await predict(models[2], input);
+                        if (p3) setPredict3(p3);
                     }}
                 />
             </div>
