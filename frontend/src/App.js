@@ -1,43 +1,37 @@
 import "bootstrap/dist/css/bootstrap.css";
-import SearchBar from "./components/SearchBar";
 import "./style.css";
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar/SearchBar";
+import { useState } from "react";
+import { predict } from "./services/searchService";
+import Card from "./components/Card/Card";
 
 function App() {
+    const models = ["simple_nn", "cnn"];
+    const [predict1, setPredict1] = useState([0, 0]);
+    const [predict2, setPredict2] = useState([0, 0, 0, 0, 0, 0, 0]);
+    const [predict3, setPredict3] = useState([0, 0, 0, 0, 0, 0, 0]);
+
     return (
         <div className="content container-md">
-            <div class="header">
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+            <div className="header">
+                <Header />
             </div>
             <div className="form-wrap">
-                <SearchBar />
+                <SearchBar
+                    makePrediction={async (input) => {
+                        const p1 = await predict(models[0], input);
+                        if (p1) setPredict1([p1[0], 1 - p1[0]]);
+
+                        const p2 = await predict(models[1], input);
+                        if (p2) setPredict2(p2);
+                    }}
+                />
             </div>
             <div className="box-wrap">
-                <div className="box-1 container-lg">binary</div>
-                <div className="box-2 container-lg">multilabel</div>
-                <div className="box-3 container-lg">BERT</div>
+                <Card title="Simple Neural Network" prediction={predict1}/>
+                <Card title="Convolution Neural Network" prediction={predict2}/>
+                <Card title="BERT model" prediction={predict3}/>
             </div>
         </div>
     );

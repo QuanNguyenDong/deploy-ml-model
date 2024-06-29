@@ -8,7 +8,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: "Poppins", sans-serif;
+    font-family: "Helvetica Neue", "Poppins", sans-serif;
 }
 
 .content {
@@ -18,7 +18,12 @@ body {
 }
 
 .header {
-    margin: 2rem 0;
+    margin: 2rem auto;
+    max-width: 720px;
+}
+
+.header ul {
+    text-align: justify;
 }
 
 .form-wrap {
@@ -32,26 +37,9 @@ body {
     flex-wrap: wrap;
 }
 
-.box-1 {
-    width: 350px;
-    height: 250px;
-    background: aqua;
-}
-
-.box-2 {
-    width: 350px;
-    height: 250px;
-    background: aqua;
-}
-
-.box-3 {
-    width: 350px;
-    height: 250px;
-    background: aqua;
-}
-
 @media (max-width: 1200px) {
     .box-wrap {
         flex-direction: column;
+        align-items: center;
     }
 }

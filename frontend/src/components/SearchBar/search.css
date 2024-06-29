@@ -23,7 +23,16 @@
     padding: 0 30px;
     height: 100%;
     border-radius: 8px;
-    border: 2px solid transparent;
-    background: #7bc5f4;
+    border: 2px solid #1682c5;
+    background: #24A0ED;
+    color: #fff;
+    font-weight: 700;
+    width: 130px;
+}
+
+.search-button:disabled,
+.search-button[disabled]{
+    border: 2px solid #AEAEAE;
+    background-color: #cccccc;
     color: #fff;
 }
