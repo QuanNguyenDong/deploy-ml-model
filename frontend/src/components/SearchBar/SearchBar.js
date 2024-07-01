@@ -25,6 +25,7 @@ function SearchBar({ makePrediction }) {
                     placeholder="Search"
                     onChange={(e) => onChangeText(e.target.value)}
                     value={text}
+                    maxLength={500}
                 />
                 <button
                     className="search-button"

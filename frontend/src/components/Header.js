@@ -4,7 +4,7 @@ function Header() {
             <li>
                 This is the demo for hateful language detection using machine
                 learning. The main purpose is education only and any negative
-                language will not be encouraged at any platforms.
+                language will NOT be encouraged at any platforms.
             </li>
             <li>
                 The outcome are the results of 3 different AI models including:
