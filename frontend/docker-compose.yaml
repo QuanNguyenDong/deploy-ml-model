@@ -1,5 +1,5 @@
 services:
-  frontend:
+  react-app:
     build:
       context: .
     ports:
