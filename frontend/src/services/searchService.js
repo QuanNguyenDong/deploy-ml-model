@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const baseURL = process.env.REACT_APP_MODEL_API;
+
 const httpRequest = axios.create({
-    baseURL: "http://localhost:8501",
+    baseURL,
 });
 
 export const predict = async (model, text) => {
