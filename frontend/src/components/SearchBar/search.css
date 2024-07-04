@@ -37,3 +37,9 @@
     border: 3px solid #767676;
     background-color: #999999;
 }
+
+.search-display {
+    margin-top: 1rem;
+    padding: 0 1rem;
+    min-height: 50px;
+}

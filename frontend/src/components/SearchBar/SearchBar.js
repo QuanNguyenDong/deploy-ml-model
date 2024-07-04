@@ -5,10 +5,12 @@ import { useState } from "react";
 function SearchBar({ makePrediction }) {
     const [text, onChangeText] = useState("");
     const [isLoading, setLoading] = useState(false);
+    const [input, setInput] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
         setLoading(true);
+        setInput(text);
         makePrediction(text);
         onChangeText("");
         setTimeout(() => {
@@ -38,6 +40,9 @@ function SearchBar({ makePrediction }) {
                         "Evaluate"
                     )}
                 </button>
+            </div>
+            <div className="search-display">
+                <h3>{input}</h3>
             </div>
         </form>
     );
