@@ -1,3 +1,4 @@
+# FROM emacski/tensorflow-serving:latest
 FROM tensorflow/serving:latest
 
 WORKDIR /
