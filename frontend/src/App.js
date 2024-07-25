@@ -37,10 +37,10 @@ function App() {
                 <div className="box-wrap">
                     <Card title="Simple Neural Network" prediction={predict1} />
                     <Card
-                        title="Convolution Neural Network"
+                        title="Convolutional Neural Network (CNN)"
                         prediction={predict2}
                     />
-                    <Card title="BERT model" prediction={predict3} />
+                    <Card title="BERT + CNN model" prediction={predict3} />
                 </div>
             </div>
         </>
